@@ -1,0 +1,33 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="App">
+        <header class="App-header">
+            <div>
+                <a href="{% url 'about' %}"><img src= "{% static 'images/logo.jpg' %}" class="App-logo" alt="logo" /></a>
+            </div>
+            <div class="app-title">DOC'S PAL</div>
+        </header>
+
+        <div class='detect-tools'>
+            <div class='breast-cancer card'>
+                    <div class='card-image'>
+                        <a href="{% url 'about' %}"><img src = "{% static 'images/breastcancer.gif' %}" alt="breastcancer"/></a>
+                    </div>
+            </div>
+            <div class='liver-segmentation card'>
+                    <div class='card-image'>
+                        <a href="{% url 'about' %}"><img src = "{% static 'images/liver.gif' %}" alt="liver segmentation" /></a>
+                    </div>
+            </div>
+         </div>
+    </div>
+</body>
+</html>
