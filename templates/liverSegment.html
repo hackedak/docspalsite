@@ -1,0 +1,27 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer</title>
+</head>
+<body>
+    <div class="App">
+        {% include 'partials/nav.html' %}
+        <h1>Liver Segmentation</h1>
+        <div class="form">
+            <form action="liverSegmentation" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="upload-img">
+                    <input type="file" id="image-upload" name="Image">
+                </div>
+                <div class="submit-btn">
+                    <input type="submit" class="button-6" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -20,6 +20,9 @@ from firstPage import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('^$',views.index, name='Homepage'),
-    url('^about$',views.about, name='about')
+    url('^breastCancer$',views.breastCancer, name='breastCancer'),
+    url('^liverSegment$',views.liverSegment, name='liverSegment'),
+    url('^predictCancer$',views.predictCancer, name='PredictCancer'),
+    url('^test$',views.test, name='test'),
     
 ]

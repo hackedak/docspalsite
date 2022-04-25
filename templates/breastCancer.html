@@ -1,0 +1,188 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/breastCancer.css' %}">
+    <title>Breast Cancer</title>
+</head>
+
+<style>
+
+</style>
+
+
+<body>
+    <div class="App">
+        {% include 'partials/nav.html' %}
+        <div class="tool-title">Breast Cancer Detection</div>
+        {% if prediction == 0 %}
+        <h1>Malignant</h1>
+        {% else %}
+        <h1>Benign</h1>
+        {% endif %}
+        <div class="form">
+            <form action="predictCancer" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="custom-field">
+                    <input id="radius_mean" type="number" step="any" name="radiusMean" required>
+                    <label for="radius_mean" class="placeholder">Mean Radius </label>
+                </div>
+                <div class="custom-field">
+                    <input id="texture_mean" type="number" step="any" name="textureMean" required>
+                    <label for="texture_mean" class="placeholder">Mean Texture </label>
+                </div>
+                <div class="custom-field">
+                    <input id="perimeter_mean" type="number" step="any" name="perimeterMean" required>
+                    <label for="perimeter_mean" class="placeholder">Perimeter Mean </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="area_mean" type="number" step="any" name="areaMean" required>
+                    <label for="area_mean" class="placeholder">Mean Area </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="smoothness_mean" type="number" step="any" name="smoothnessMean" required>
+                    <label for="smoothness_mean" class="placeholder">Mean Somoothness </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="compactness_mean" type="number" step="any" name="compactnessMean" required>
+                    <label for="compactness_mean" class="placeholder">Mean Compactness </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="concavity_mean" type="number" step="any" name="concavityMean" required>
+                    <label for="concavity_mean" class="placeholder">Mean Concavity </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="concave_points_mean" type="number" step="any" name="concavePointsMean" required>
+                    <label for="concave_points_mean" class="placeholder">Mean Concave Points </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="symmetry_mean" type="number" step="any" name="symmetryMean" required>
+                    <label for="symmetry_mean" class="placeholder">Mean Symmetry </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="fractal_dimension_mean" type="number" step="any" name="fractalDimensionMean" required>
+                    <label for="fractal_dimension_mean" class="placeholder">Mean Fractal Dimension </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="radius_se" type="number" step="any" name="radiusSe" required>
+                    <label for="radius_se" class="placeholder">Radius SE </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="texture_se" type="number" step="any" name="textureSe" required>
+                    <label for="texture_se" class="placeholder">Texture SE </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="perimeter_se" type="number" step="any" name="perimeterSe" required>
+                    <label for="perimeter_se" class="placeholder">Perimeter SE </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="area_se" type="number" step="any" name="areaSe" required>
+                    <label for="area_se" class="placeholder">Area mean </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="smoothness_se" type="number" step="any" name="smoothnessSe" required>
+                    <label for="smoothness_se" class="placeholder">Smoothness SE </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="compactness_se" type="number" step="any" name="compactnessSe" required>
+                    <label for="compactness_se" class="placeholder">Compactness SE </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="concavity_se" type="number" step="any" name="concavitySe" required>
+                    <label for="concavity_se" class="placeholder">Concavity SE </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="concave_points_se" type="number" step="any" name="concavePointsSe" required>
+                    <label for="concave_points_se" class="placeholder">Concave Points SE </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="symmetry_se" type="number" step="any" name="symmetrySe" required>
+                    <label for="symmetry_se" class="placeholder">Symmetry SE </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="fractal_dimension_se" type="number" step="any" name="fractalDimensionSe" required>
+                    <label for="fractal_dimension_se" class="placeholder">Fractal Dimension SE </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="radius_worst" type="number" step="any" name="radiusWorst" required>
+                    <label for="radius_worst" class="placeholder">Radius worst </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="texture_worst" type="number" step="any" name="textureWorst" required>
+                    <label for="texture_worst" class="placeholder">Texture worst </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="perimeter_worst" type="number" step="any" name="perimeterWorst" required>
+                    <label for="perimeter_worst" class="placeholder">Perimeter worst </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="area_worst" type="number" step="any" name="areaWorst" required>
+                    <label for="area_worst" class="placeholder">Area worst </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="smoothness_worst" type="number" step="any" name="smoothnessWorst" required>
+                    <label for="smoothness_worst" class="placeholder">Smoothness worst </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="compactness_worst" type="number" step="any" name="compactnessWorst" required>
+                    <label for="compactness_worst" class="placeholder">Compactness worst </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="concavity_worst" type="number" step="any" name="concavityWorst" required>
+                    <label for="concavity_worst" class="placeholder">Concavity worst </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="concave_points_worst" type="number" step="any" name="concavePointsWorst" required>
+                    <label for="concave_points_worst" class="placeholder">Concave points worst </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="symmetry_worst" type="number" step="any" name="symmetryWorst" required>
+                    <label for="symmetry_worst" class="placeholder">Symmetry worst </label>
+
+                </div>
+                <div class="custom-field">
+                    <input id="fractal_dimension_worst" type="number" step="any" name="fractalDimensionWorst" required>
+                    <label for="fractal_dimension_worst" class="placeholder">Fractal Dimension worst </label>
+
+                </div>
+
+                <div class="submit-btn">
+                    <input type="submit" class="button-6" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
