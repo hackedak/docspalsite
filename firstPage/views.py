@@ -21,6 +21,11 @@ def liverSegment(request):
     context = {'pageValue' : 'Liver Segmentation'}
     return render(request, 'liverSegment.html', context)
 
+def cleanImage(request):
+    # write code here
+    context={'pageType': 'This is for output image'}
+    return render(request, 'testfile.html', context)
+
 def predictCancer(request):
     if request.method == 'POST':
         temp={}
