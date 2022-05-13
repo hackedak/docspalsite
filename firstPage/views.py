@@ -6,7 +6,6 @@ from django.http import HttpResponse
 import joblib
 import pandas as pd
 import numpy as np
-
 reloadModel=joblib.load('models/trained_model.sav')
 
 
@@ -56,17 +55,17 @@ def predictCancer(request):
         temp['symmetryWorst']=request.POST.get('symmetryWorst')
         temp['fractalDimensionWorst']=request.POST.get('fractalDimensionWorst')
 
-    # inputData = pd.DataFrame({'x':temp}).transpose()
-    input_data = list(temp.values())
+    # input_data = list(temp.values())
+    input_data = (13.54,14.36,87.46,566.3,0.09779,0.08129,0.06664,0.04781,0.1885,0.05766,0.2699,0.7886,2.058,23.56,0.008462,0.0146,0.02387,0.01315,0.0198,0.0023,15.11,19.26,99.7,711.2,0.144,0.1773,0.239,0.1288,0.2977,0.07259)
     print(input_data)
-    # change the input data to a numpy array
     input_data_as_numpy_array = np.asarray(input_data)
-
-# reshape the numpy array as we are predicting for one datapoint
     input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
-    prediction = reloadModel.predict(input_data_reshaped)[0]
+    scoreVal = reloadModel.predict(input_data_reshaped)[0]
     # scoreVal = reloadModel.predict(inputData)[0]
-    context = {'prediction' : prediction}
+    if scoreVal == 1:
+        context = {'scoreVal' : 'Malignant'}
+    else:
+        context = {'scoreVal' : 'Benign'}
     return render(request, 'breastCancer.html', context)
 
 

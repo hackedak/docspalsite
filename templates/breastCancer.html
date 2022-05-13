@@ -19,10 +19,10 @@
     <div class="App">
         {% include 'partials/nav.html' %}
         <div class="tool-title">Breast Cancer Detection</div>
-        {% if prediction == 0 %}
-        <h1>Malignant</h1>
+        
+        {% if scoreVal %}
+        <h1>Diagnosis is {{ scoreVal }}</h1>
         {% else %}
-        <h1>Benign</h1>
         {% endif %}
         <div class="form">
             <form action="predictCancer" method="POST" enctype="multipart/form-data">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="custom-field">
                     <input id="smoothness_mean" type="number" step="any" name="smoothnessMean" required>
-                    <label for="smoothness_mean" class="placeholder">Mean Somoothness </label>
+                    <label for="smoothness_mean" class="placeholder">Mean Smoothness </label>
 
                 </div>
                 <div class="custom-field">
