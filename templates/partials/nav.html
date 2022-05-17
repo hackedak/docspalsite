@@ -1,10 +1,25 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/index.css' %}">
-<header class="App-header">
-    <!-- <div>
-        <a href="{% url 'test' %}"><img src= "{% static 'images/logo.jpg' %}" class="App-logo" alt="logo" /></a>
-    </div> -->
-    <a href="{% url 'Homepage' %}"><div class="app-title">DOC'S PAL</div></a>
-</header>
-<div class="line"></div>
-<div class="line"></div>
+<nav class="navbar navbar-expand-md fixed-top navbar-light" style="background-color: #ffffff00;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">DocsPal</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item home">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Diagnosis
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Model1</a></li>
+            <li><a class="dropdown-item" href="#">Model2</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

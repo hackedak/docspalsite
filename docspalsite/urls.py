@@ -19,7 +19,7 @@ from django.urls import re_path as url
 from firstPage import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('^$',views.index, name='Homepage'),
+    url('^$',views.home, name='Homepage'),
     url('^breastCancer$',views.breastCancer, name='breastCancer'),
     url('^liverSegment$',views.liverSegment, name='liverSegment'),
     url('^predictCancer$',views.predictCancer, name='PredictCancer'),

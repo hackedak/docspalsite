@@ -9,9 +9,9 @@ import numpy as np
 reloadModel=joblib.load('models/trained_model.sav')
 
 
-def index(request):
+def home(request):
     context = {'a' : 'HELLO NEW WORLD'}
-    return render(request, 'index.html', context)
+    return render(request, 'home.html', context)
 
 def breastCancer(request):
     context = {'pageValue' : 'Breast Cancer Detection'}

@@ -24,7 +24,18 @@ html, body{
 }
 
 
-.line {
+
+
+
+
+
+
+/* old css code */
+
+
+
+
+/* .line {
   border-top: 1px solid rgb(20, 1, 1);
   width: 80vmin;
   margin-bottom: 2px;
@@ -81,4 +92,4 @@ html, body{
    color: var(--tertiary-green);
    font-family: "notasans-bold";
    font-size: calc(var(--fontsmall)*1.5);
- }
+ } */
