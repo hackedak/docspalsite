@@ -10,123 +10,11 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-  <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <title>DocsPal</title>
 </head>
 <style>
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .parent-size {
-    width: 80%;
-    height: 80%;
-  }
-
-  .center {
-    text-align: center;
-  }
-
-  .navbar {
-    padding-top: 1rem;
-    border-radius: 5px;
-  }
-
-  .dropdown-toggle::after {
-    content: none;
-  }
-
-  .pos-relative {
-    position: relative;
-  }
-
-  .navbar {
-    border-radius: 5px;
-    width: 80%;
-    position: relative;
-    left: 10%;
-  }
-
-  .dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
-  }
-
-  .dropdown .dropdown-menu {
-    -webkit-transition: all 0.32s;
-    -moz-transition: all 0.32s;
-    -ms-transition: all 0.32s;
-    -o-transition: all 0.32s;
-    transition: all 0.32s;
-
-    display: block;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateX(-25%) scaleY(0);
-    transform-origin: top;
-  }
-
-  .dropdown-menu.show {
-    opacity: 1;
-    transform: translateX(-25%) scaleY(1);
-  }
-
-  .dropdown-menu {
-    min-width: 8rem;
-    text-align: unset;
-    background-color: #e3f2fd;
-    background-clip: padding-box;
-    border: none;
-    border-radius: 5px;
-  }
-
-  .jumbotron {
-    width: 100%;
-    height: 80%;
-    background: rgb(190, 222, 240);
-    background: linear-gradient(326deg, rgba(190, 222, 240, 1) 0%, rgba(221, 237, 244, 1) 47%, rgba(245, 254, 255, 1) 100%);
-    border-radius: 2rem;
-  }
-
-  .navbar-light .navbar-nav .nav-link:focus,
-  .navbar-light .navbar-nav .nav-link:hover {
-    color: rgba(0, 0, 0, .7);
-
-  }
-
-  .oval-img {
-    position: absolute;
-    right: 0;
-    width: 50%;
-    z-index: 99;
-  }
-
-  .zero-pad {
-    padding: 0;
-  }
-
-  .nav-item {
-    margin: 0 5px;
-  }
-
-  .home {
-    border: 1px solid white;
-    border-radius: 30px;
-    margin: 0;
-  }
-  .caption-name{
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-  .caption-name h1{
-    padding-left: 1rem;
-    text-align: left;
-  }
+  
 </style>
 
 <body>
@@ -156,6 +44,9 @@
         <h1>Health.<br>
           Powered by Ada.
         </h1>
+      </div>
+      <div class="capsule-img">
+        <img src="{% static 'images/capsule.svg' %}" alt="capsule">
       </div>
     </div>
   </div>
