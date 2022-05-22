@@ -1,11 +1,21 @@
 @font-face {
-  font-family: "notasans";
-  src: url("../fonts/NotoSans-Medium.ttf");
+  font-family: "PTSerif-Regular";
+  src: url("../fonts/PTSerif-Regular.ttf");
 }
 
 @font-face {
-  font-family: "notasans-bold";
-  src: url("../fonts/NotoSans-Bold.ttf");
+  font-family: "PTSerif-Bold";
+  src: url("../fonts/PTSerif-Bold.ttf");
+}
+
+@font-face {
+  font-family: "PTSerif-BoldItalic";
+  src: url("../fonts/PTSerif-BoldItalic.ttf");
+}
+
+@font-face {
+  font-family: "PTSerif-Italic";
+  src: url("../fonts/PTSerif-Italic.ttf");
 }
 
 :root {
@@ -20,11 +30,22 @@ html, body{
     margin: 0px;
     padding: 0px;
     height: 100%;
-    font-family: "notasans";
+    font-family: "PTSerif-Regular";
 }
 
 
-.line {
+
+
+
+
+
+
+/* old css code */
+
+
+
+
+/* .line {
   border-top: 1px solid rgb(20, 1, 1);
   width: 80vmin;
   margin-bottom: 2px;
@@ -81,4 +102,4 @@ html, body{
    color: var(--tertiary-green);
    font-family: "notasans-bold";
    font-size: calc(var(--fontsmall)*1.5);
- }
+ } */
