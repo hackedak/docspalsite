@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url('^$',views.home, name='Homepage'),
     url('^breastCancer$',views.breastCancer, name='breastCancer'),
-    url('^liverSegment$',views.liverSegment, name='liverSegment'),
+    url('^liverSegment$',views.brainTumor, name='brainTumor'),
     url('^predictCancer$',views.predictCancer, name='PredictCancer'),
     url('^test$',views.test, name='test'),
     
