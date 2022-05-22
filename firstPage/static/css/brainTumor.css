@@ -1,38 +1,3 @@
-@font-face {
-  font-family: "PTSerif-Regular";
-  src: url("../fonts/PTSerif-Regular.ttf");
-}
-
-@font-face {
-  font-family: "PTSerif-Bold";
-  src: url("../fonts/PTSerif-Bold.ttf");
-}
-
-@font-face {
-  font-family: "PTSerif-BoldItalic";
-  src: url("../fonts/PTSerif-BoldItalic.ttf");
-}
-
-@font-face {
-  font-family: "PTSerif-Italic";
-  src: url("../fonts/PTSerif-Italic.ttf");
-}
-
-:root {
-  --primary-green: aquamarine;
-  --tertiary-green: rgb(19, 83, 40);
-  --secondary-green: rgb(16, 168, 115);
-  --fontsmall: 1rem;
-}
-
-
-html, body{
-    margin: 0px;
-    padding: 0px;
-    height: 100%;
-    font-family: "PTSerif-Regular";
-}
-
 
 
 

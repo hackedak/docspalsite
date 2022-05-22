@@ -1,0 +1,137 @@
+@font-face {
+    font-family: "PTSerif-Regular";
+    src: url("../fonts/PTSerif-Regular.ttf");
+  }
+  
+  @font-face {
+    font-family: "PTSerif-Bold";
+    src: url("../fonts/PTSerif-Bold.ttf");
+  }
+  
+  @font-face {
+    font-family: "PTSerif-BoldItalic";
+    src: url("../fonts/PTSerif-BoldItalic.ttf");
+  }
+  
+  @font-face {
+    font-family: "PTSerif-Italic";
+    src: url("../fonts/PTSerif-Italic.ttf");
+  }
+  
+  :root {
+    --primary-green: aquamarine;
+    --tertiary-green: rgb(19, 83, 40);
+    --secondary-green: rgb(16, 168, 115);
+    --fontsmall: 1rem;
+  }
+  
+  
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'PTSerif-Regular';
+  }
+  
+  .parent-size {
+    width: 80%;
+    height: 80%;
+  }
+
+  .center {
+    text-align: center;
+  }
+  
+  .navbar {
+    padding-top: 1rem;
+    border-radius: 5px;
+  }
+
+  .dropdown-toggle::after {
+    content: none;
+  }
+  
+  .pos-relative {
+    position: relative;
+  }
+  
+  .navbar {
+    border-radius: 5px;
+    width: 80%;
+    position: relative;
+    left: 10%;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    background-color: #659ec7ad
+  }
+  
+  .dropdown .dropdown-menu {
+    -webkit-transition: all 0.32s;
+    -moz-transition: all 0.32s;
+    -ms-transition: all 0.32s;
+    -o-transition: all 0.32s;
+    transition: all 0.32s;
+  
+    display: block;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-25%) scaleY(0);
+    transform-origin: top;
+  }
+  
+  .dropdown-menu.show {
+    opacity: 1;
+    transform: translateX(-25%) scaleY(1);
+  }
+  
+  .dropdown-menu {
+    min-width: 8rem;
+    text-align: unset;
+    background-color: #e3f2fd;
+    background-clip: padding-box;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .navbar-light .navbar-nav .nav-link:focus,
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: rgba(0, 0, 0, .7);
+  
+  }
+  
+  .oval-img {
+    position: absolute;
+    right: 0;
+    width: 50%;
+    z-index: 99;
+    animation-name: oval-img;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+  }
+  
+  .zero-pad {
+    padding: 0;
+  }
+  
+  .nav-item {
+    margin: 0 5px;
+  }
+  
+  .home {
+    border: 1px solid white;
+    border-radius: 30px;
+    margin: 0;
+  }
+
+  @keyframes oval-img {
+    from {
+      width: 45%;
+    }
+  
+    to {}
+  }

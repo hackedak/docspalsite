@@ -1,0 +1,76 @@
+
+  .jumbotron {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    background: rgb(190, 222, 240);
+    background: linear-gradient(326deg, rgba(190, 222, 240, 1) 0%, rgba(221, 237, 244, 1) 47%, rgba(245, 254, 255, 1) 100%);
+    border-radius: 2rem;
+  }
+  
+  
+  
+  .caption-name {
+    height: 100%;
+    left: 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    animation-name: captionAnim;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+  }
+  
+  .caption-name h1 {
+    padding-left: 1rem;
+    text-align: left;
+    font-family: "PTSerif-Bold";
+  }
+  
+  .capsule-img {
+    flex: 1;
+    position: relative;
+    animation-name: capsuleAnime;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-timing-function:cubic-bezier(0.311, 0.441, 0.444, 1.649);
+  }
+  
+  .capsule-img img {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 30%;
+  
+  }
+  
+  @keyframes captionAnim {
+    from {
+      position: relative;
+      left: -10px;
+      opacity: 0;
+  
+    }
+  
+    to {
+      position: unset;
+      opacity: 100%;
+      left: 10px;
+    }
+  }
+  
+
+  @keyframes capsuleAnime {
+    from {
+      right: 0.5rem;
+      bottom: 0.5rem;
+      opacity: 0;
+    }
+  
+    to {
+      right: 1.5rem;
+      bottom: 1.5rem;
+      opacity: 1;
+    }
+  }
+  
