@@ -17,9 +17,9 @@ def breastCancer(request):
     context = {'pageValue' : 'Breast Cancer Detection'}
     return render(request, 'breastCancer.html', context)
 
-def liverSegment(request):
-    context = {'pageValue' : 'Liver Segmentation'}
-    return render(request, 'liverSegment.html', context)
+def brainTumor(request):
+    context = {'pageValue' : 'Brain Tumor'}
+    return render(request, 'brainTumor.html', context)
 
 def cleanImage(request):
     # write code here
