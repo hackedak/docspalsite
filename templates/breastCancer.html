@@ -5,184 +5,152 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% include 'partials/nav.html' %}
-    <link rel="stylesheet" href="{% static 'css/breastCancer.css' %}">
-    <title>Breast Cancer</title>
+    {% include 'partials/bootstrapheader.html' %}
+    <title>Brain Tumor</title>
 </head>
 
 <style>
+    .navbar {
+        background-color: #1070B4;
+        margin: 1rem 0;
+        border-radius: 1.5rem;
+    }
 
+    .jumbotron {
+        display: block;
+        width: 100%;
+        min-height: 100%;
+        background: rgb(190, 222, 240);
+        background: linear-gradient(326deg, rgba(190, 222, 240, 1) 0%, rgba(221, 237, 244, 1) 47%, rgba(245, 254, 255, 1) 100%);
+        border-radius: 1.5rem;
+        padding: 2rem;
+    }
+
+    .cancer-text {
+        flex: 1;
+    }
+    .card-style{
+        margin: 1rem;
+        padding: 10px;
+    }
+    .breastcancer-form {
+        flex: 1;
+    }
+
+    .breast-cancer-card {
+        display: flex;
+    }
+    .model-title{
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    .line-vertical{
+        width: 0;
+        min-height: 100%;
+        background-color: #1070B4;
+        border: 3px solid #1070B4;
+        border-radius: 2rem;
+    }
 </style>
 
 
 <body>
-    <div class="App">
+    <div class="container parent-size pos-relative zero-pad" style="text-align: center;">
         {% include 'partials/nav.html' %}
-        <div class="tool-title">Breast Cancer Detection</div>
-        
-        {% if scoreVal %}
-        <h1>Diagnosis is {{ scoreVal }}</h1>
-        {% else %}
-        {% endif %}
-        <div class="form">
-            <form action="predictCancer" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
 
-                <div class="custom-field">
-                    <input id="radius_mean" type="number" step="any" name="radiusMean" required>
-                    <label for="radius_mean" class="placeholder">Mean Radius </label>
+        <div class="jumbotron">
+            <div class=" container model-title">
+                Breast Cancer Detection
+            </div>
+            <div class="breast-cancer-card">
+                <div class="cancer-text card-style">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde animi voluptatum doloremque
+                    dignissimos
+                    distinctio adipisci, asperiores quas atque illum ad voluptate corporis ipsa dicta, quod accusantium.
+                    Quod voluptas sint deserunt totam praesentium voluptatibus fuga, similique accusamus cupiditate
+                    molestiae vero fugit possimus, laboriosam nisi optio sunt atque, architecto rem nam ea omnis laborum
+                    minus! Asperiores exercitationem consequatur ipsa dolorem, perspiciatis impedit molestiae illo iure
+                    doloremque, eos distinctio quibusdam provident eligendi maxime quo labore vero voluptatum cupiditate
+                    ut
+                   
                 </div>
-                <div class="custom-field">
-                    <input id="texture_mean" type="number" step="any" name="textureMean" required>
-                    <label for="texture_mean" class="placeholder">Mean Texture </label>
+                <div class="line-vertical"></div>
+                <div class="container breastcancer-form card-style">
+                    <form action="predictCancer" method="POST" enctype="multipart/form-data">
+                            <div class>
+                                <label for="inputFeature1">Feature 1</label>
+                                <div class="col-4">
+                                    <input type="number" id="inputFeature1">
+                                </div>
+                            </div>
+                            <div class>
+                                <label for="inputFeature1">Feature 1</label>
+                                <div class="col-4">
+                                    <input type="number" id="inputFeature1">
+                                </div>
+                            </div>
+                            <div class>
+                                <button type="submit" class="col-9 btn btn-primary">Sign in</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="custom-field">
-                    <input id="perimeter_mean" type="number" step="any" name="perimeterMean" required>
-                    <label for="perimeter_mean" class="placeholder">Perimeter Mean </label>
+            </div>
+            <!-- <div class="container row g-0">
+                <div class="col-md-5">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem rem eum, illo ipsam sit
+                    adipisci. Cumque, expedita vero minima harum dolorem, quaerat, deserunt doloribus ducimus voluptas
+                    ex nam voluptatem officiis.
+                </div>
+                <div class="col-md-7">
+                    <div class="form-card">
+                        <div class="breastcancer-form">
+                            <form action="predictCancer" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
 
+                                <form action="predictCancer" method="POST" enctype="multipart/form-data">
+                                    <div class="input-group input-group-sm justify-content-center">
+                                        <div class="row">
+                                            <label for="inputFeature1" class="col-8 col-form-label">Feature 1</label>
+                                            <div class="col-4">
+                                                <input type="number" class="form-control" id="inputFeature1">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="inputFeature1" class="col-8 col-form-label">Feature 1</label>
+                                            <div class="col-4">
+                                                <input type="number" class="form-control" id="inputFeature1">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <button type="submit" class="col-9 btn btn-primary">Sign in</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="custom-field">
-                    <input id="area_mean" type="number" step="any" name="areaMean" required>
-                    <label for="area_mean" class="placeholder">Mean Area </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="smoothness_mean" type="number" step="any" name="smoothnessMean" required>
-                    <label for="smoothness_mean" class="placeholder">Mean Smoothness </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="compactness_mean" type="number" step="any" name="compactnessMean" required>
-                    <label for="compactness_mean" class="placeholder">Mean Compactness </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="concavity_mean" type="number" step="any" name="concavityMean" required>
-                    <label for="concavity_mean" class="placeholder">Mean Concavity </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="concave_points_mean" type="number" step="any" name="concavePointsMean" required>
-                    <label for="concave_points_mean" class="placeholder">Mean Concave Points </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="symmetry_mean" type="number" step="any" name="symmetryMean" required>
-                    <label for="symmetry_mean" class="placeholder">Mean Symmetry </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="fractal_dimension_mean" type="number" step="any" name="fractalDimensionMean" required>
-                    <label for="fractal_dimension_mean" class="placeholder">Mean Fractal Dimension </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="radius_se" type="number" step="any" name="radiusSe" required>
-                    <label for="radius_se" class="placeholder">Radius SE </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="texture_se" type="number" step="any" name="textureSe" required>
-                    <label for="texture_se" class="placeholder">Texture SE </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="perimeter_se" type="number" step="any" name="perimeterSe" required>
-                    <label for="perimeter_se" class="placeholder">Perimeter SE </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="area_se" type="number" step="any" name="areaSe" required>
-                    <label for="area_se" class="placeholder">Area mean </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="smoothness_se" type="number" step="any" name="smoothnessSe" required>
-                    <label for="smoothness_se" class="placeholder">Smoothness SE </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="compactness_se" type="number" step="any" name="compactnessSe" required>
-                    <label for="compactness_se" class="placeholder">Compactness SE </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="concavity_se" type="number" step="any" name="concavitySe" required>
-                    <label for="concavity_se" class="placeholder">Concavity SE </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="concave_points_se" type="number" step="any" name="concavePointsSe" required>
-                    <label for="concave_points_se" class="placeholder">Concave Points SE </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="symmetry_se" type="number" step="any" name="symmetrySe" required>
-                    <label for="symmetry_se" class="placeholder">Symmetry SE </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="fractal_dimension_se" type="number" step="any" name="fractalDimensionSe" required>
-                    <label for="fractal_dimension_se" class="placeholder">Fractal Dimension SE </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="radius_worst" type="number" step="any" name="radiusWorst" required>
-                    <label for="radius_worst" class="placeholder">Radius worst </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="texture_worst" type="number" step="any" name="textureWorst" required>
-                    <label for="texture_worst" class="placeholder">Texture worst </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="perimeter_worst" type="number" step="any" name="perimeterWorst" required>
-                    <label for="perimeter_worst" class="placeholder">Perimeter worst </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="area_worst" type="number" step="any" name="areaWorst" required>
-                    <label for="area_worst" class="placeholder">Area worst </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="smoothness_worst" type="number" step="any" name="smoothnessWorst" required>
-                    <label for="smoothness_worst" class="placeholder">Smoothness worst </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="compactness_worst" type="number" step="any" name="compactnessWorst" required>
-                    <label for="compactness_worst" class="placeholder">Compactness worst </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="concavity_worst" type="number" step="any" name="concavityWorst" required>
-                    <label for="concavity_worst" class="placeholder">Concavity worst </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="concave_points_worst" type="number" step="any" name="concavePointsWorst" required>
-                    <label for="concave_points_worst" class="placeholder">Concave points worst </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="symmetry_worst" type="number" step="any" name="symmetryWorst" required>
-                    <label for="symmetry_worst" class="placeholder">Symmetry worst </label>
-
-                </div>
-                <div class="custom-field">
-                    <input id="fractal_dimension_worst" type="number" step="any" name="fractalDimensionWorst" required>
-                    <label for="fractal_dimension_worst" class="placeholder">Fractal Dimension worst </label>
-
-                </div>
-
-                <div class="submit-btn">
-                    <input type="submit" class="button-6" value="Submit">
-                </div>
-            </form>
+            </div> -->
         </div>
     </div>
+
+
+
+    <!-- <div class="custom-fiel-d">
+                        <input id="fractal_dimension_worst" type="number" step="any" name="fractalDimensionWorst"
+                            required>
+                        <label for="fractal_dimension_worst" class="placeholder">Fractal Dimension worst </label>
+                    </div>
+
+                    <div class="submit-btn">
+                        <input type="submit" class="btn btn-light" value="Submit">
+                    </div> -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
