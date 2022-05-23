@@ -1,12 +1,17 @@
 from multiprocessing import context
 from django.shortcuts import render
 from django.http import HttpResponse
+from firstPage.models import UploadImage
 # Create your views here.
 
 import joblib
 import pandas as pd
 import numpy as np
 reloadModel=joblib.load('models/trained_model.sav')
+
+def resizeImage(Image):
+    image = Image
+    return image
 
 
 def home(request):
@@ -20,11 +25,6 @@ def breastCancer(request):
 def brainTumor(request):
     context = {'pageValue' : 'Brain Tumor'}
     return render(request, 'brainTumor.html', context)
-
-def cleanImage(request):
-    # write code here
-    context={'pageType': 'This is for output image'}
-    return render(request, 'testfile.html', context)
 
 def predictCancer(request):
     if request.method == 'POST':
@@ -74,6 +74,14 @@ def predictCancer(request):
     return render(request, 'breastCancer.html', context)
 
 
+def predictTumor(request):
+    if request.method == "POST":
+        fileUploaded = request.FILES['imgfile']
+        # call resize image here
+        document = UploadImage.objects.create(file = fileUploaded)
+        document.save()
+        return HttpResponse("Your file was saved")
+    return render(request, "brainTumor.html")
 
 def test(request):
     context = {'pageValue' : 'Testing'}

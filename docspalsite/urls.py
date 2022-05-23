@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import re_path as url
 from firstPage import views
+from django.conf.urls.static import static
+from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('^$',views.home, name='Homepage'),
     url('^breastCancer$',views.breastCancer, name='breastCancer'),
     url('^liverSegment$',views.brainTumor, name='brainTumor'),
-    url('^predictCancer$',views.predictCancer, name='PredictCancer'),
+    url('^predictTumor$',views.predictTumor, name='PredictTumor'),
     url('^test$',views.test, name='test'),
     
-]
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
