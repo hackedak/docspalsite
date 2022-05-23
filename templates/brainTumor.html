@@ -1,0 +1,91 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include 'partials/bootstrapheader.html' %}
+    <link rel="stylesheet" href="{% static 'css/braintumor.css' %}">
+    <title>Brain Tumor</title>
+</head>
+<style>
+    .oval-img {
+        animation-name: unset;
+    }
+
+    .jumbotron {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        background: rgb(190, 222, 240);
+        background: linear-gradient(326deg, rgba(190, 222, 240, 1) 0%, rgba(221, 237, 244, 1) 47%, rgba(245, 254, 255, 1) 100%);
+        border-radius: 2rem;
+    }
+
+    .form {
+        position: absolute;
+        top: 50%;
+        width: 50%;
+        left: 25%;
+        background-color: rgb(190, 222, 240);
+        border: 6px solid #1C6EA4;
+        border-radius: 26px 0px 26px 0px;
+        padding: 1rem;
+    }
+</style>
+
+<body>
+
+    <div class="container parent-size pos-relative zero-pad" style="text-align: center;">
+        <div class="oval-img">
+            <svg viewBox="0 0 797 305" xmlns="http://www.w3.org/2000/svg" class="sc-40gikt-0 ePffLY" opacity="1"
+                transform-origin="466.8830986022949px 33.081817626953125px"
+                style="transform: none; transform-origin: 466.883px 33.0818px;">
+                <linearGradient id="lg-tm" x1="154.452013%" x2="-50.939094%" y1="28.495943%" y2="68.103485%">
+                    <stop offset="0" stop-color="#009fff"></stop>
+                    <stop offset=".114442568" stop-color="#068ee4"></stop>
+                    <stop offset=".291411529" stop-color="#116fb2"></stop>
+                    <stop offset=".495967872" stop-color="#1a578a"></stop>
+                    <stop offset=".685494088" stop-color="#1f4c78"></stop>
+                    <stop offset=".829866976" stop-color="#243a5c"></stop>
+                    <stop offset="1" stop-color="#263656"></stop>
+                </linearGradient>
+                <path
+                    d="m382.813324.99081359c-202.77004.20492696-351.964396 94.02320371-276.803172 225.62704841 90.457101 158.264101-99.67437012 168.153679-105.28273506 231.86621-4.76785074 55.019185 43.48951306 101.405513 130.70921506 101.506742h.594901c59.524698-.07407 137.113662-21.656829 228.291556-76.646386 107.97707-65.12233 191.458274-42.809982 271.215789-20.497633 52.835143 14.77943 104.037392 29.560096 159.645861 18.922412 185.959755-35.50051 258.348891-361.610899-269.292851-466.8643468-47.290958-9.42540555-93.804347-13.87454262-137.828284-13.91404661z"
+                    fill="url(#lg-tm)" fill-rule="evenodd"
+                    transform="matrix(-.98162718 .190809 -.190809 -.98162718 976.766318 219.711223)"></path>
+            </svg>
+        </div>
+        {% include 'partials/nav.html' %}
+        <div class="jumbotron">
+            <div class="form container">
+                <form action="liverSegmentation" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="mb-4">
+                        <label for="formFile" class="form-label">Brain Tumor Detection</label>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+                    <div class="submit-btn">
+                        <input type="submit" class="button-6" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
