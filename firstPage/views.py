@@ -2,12 +2,8 @@ from multiprocessing import context
 from django.shortcuts import render
 from django.http import HttpResponse
 from firstPage.models import UploadImage
-# Create your views here.
 
-import joblib
-import pandas as pd
-import numpy as np
-reloadModel=joblib.load('models/trained_model.sav')
+
 
 def resizeImage(Image):
     image = Image
@@ -27,51 +23,49 @@ def brainTumor(request):
     return render(request, 'brainTumor.html', context)
 
 def predictCancer(request):
+    import tensorflow as tf
+    from sklearn.preprocessing import StandardScaler
+    import pandas as pd
+    import numpy as np
+    reloadModel = tf.keras.models.load_model('models/breast_cancer_pred.h5')
     if request.method == 'POST':
         temp={}
-        temp['radiusMean']=request.POST.get('radiusMean')
-        temp['textureMean']=request.POST.get('textureMean')
-        temp['perimeterMean']=request.POST.get('perimeterMean')
-        temp['areaMean']=request.POST.get('areaMean')
-        temp['smoothnessMean']=request.POST.get('smoothnessMean')
-        temp['compactnessMean']=request.POST.get('compactnessMean')
         temp['concavityMean']=request.POST.get('concavityMean')
         temp['concavePointsMean']=request.POST.get('concavePointsMean')
-        temp['symmetryMean']=request.POST.get('symmetryMean')
-        temp['fractalDimensionMean']=request.POST.get('fractalDimensionMean')
-        temp['radiusSe']=request.POST.get('radiusSe')
         temp['textureSe']=request.POST.get('textureSe')
-        temp['perimeterSe']=request.POST.get('perimeterSe')
-        temp['areaSe']=request.POST.get('areaSe')
         temp['smoothnessSe']=request.POST.get('smoothnessSe')
         temp['compactnessSe']=request.POST.get('compactnessSe')
         temp['concavitySe']=request.POST.get('concavitySe')
         temp['concavePointsSe']=request.POST.get('concavePointsSe')
         temp['symmetrySe']=request.POST.get('symmetrySe')
         temp['fractalDimensionSe']=request.POST.get('fractalDimensionSe')
-        temp['radiusWorst']=request.POST.get('radiusWorst')
-        temp['textureWorst']=request.POST.get('textureWorst')
-        temp['perimeterWorst']=request.POST.get('perimeterWorst')
-        temp['areaWorst']=request.POST.get('areaWorst')
-        temp['smoothnessWorst']=request.POST.get('smoothnessWorst')
-        temp['compactnessWorst']=request.POST.get('compactnessWorst')
         temp['concavityWorst']=request.POST.get('concavityWorst')
-        temp['concavePointsWorst']=request.POST.get('concavePointsWorst')
-        temp['symmetryWorst']=request.POST.get('symmetryWorst')
-        temp['fractalDimensionWorst']=request.POST.get('fractalDimensionWorst')
+    input_data = list(temp.values())
+    input_data = [float(i) for i in input_data]
+    # input_data = (0.06664,0.04781,0.7886,0.008462,0.0146,0.02387,0.01315,0.0198,0.0023,0.239)
 
-    # input_data = list(temp.values())
-    input_data = (13.54,14.36,87.46,566.3,0.09779,0.08129,0.06664,0.04781,0.1885,0.05766,0.2699,0.7886,2.058,23.56,0.008462,0.0146,0.02387,0.01315,0.0198,0.0023,15.11,19.26,99.7,711.2,0.144,0.1773,0.239,0.1288,0.2977,0.07259)
-    print(input_data)
+    #Converting to numpy array
     input_data_as_numpy_array = np.asarray(input_data)
+
+    # Reshape the numpy array as we are predicting for one data point
     input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
-    scoreVal = reloadModel.predict(input_data_reshaped)[0]
-    # scoreVal = reloadModel.predict(inputData)[0]
-    if scoreVal == 1:
-        context = {'scoreVal' : 'Malignant'}
-    else:
-        context = {'scoreVal' : 'Benign'}
-    return render(request, 'breastCancer.html', context)
+
+    mean = [[0.06044219, 0.03590222, 1.09231332, 0.00638967, 0.01968866,
+        0.02401426, 0.0099103 , 0.01863193, 0.00299774, 0.21344783]]
+
+    scale = [[0.04900596, 0.02559238, 0.41563276, 0.00199298, 0.01061234,
+        0.01508947, 0.0040322 , 0.00526381, 0.00130473, 0.14703332]]
+
+    scaled_data = (input_data_reshaped - mean)/ scale
+
+    prediction = reloadModel.predict(scaled_data)
+    print(prediction)
+
+    prediction_label = np.argmax(prediction)
+    print(prediction_label)
+
+    context = {'prediction': prediction_label}
+    return render(request, 'cancerPrediction.html', context)
 
 
 def predictTumor(request):
