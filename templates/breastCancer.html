@@ -6,53 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% include 'partials/bootstrapheader.html' %}
-    <title>Brain Tumor</title>
+    <link rel="stylesheet" href="{% static 'css/breastcancer.css' %}">
+    <title>Breast Cancer Prediction</title>
 </head>
-
-<style>
-    .navbar {
-        background-color: #1070B4;
-        margin: 1rem 0;
-        border-radius: 1.5rem;
-    }
-
-    .jumbotron {
-        display: block;
-        width: 100%;
-        min-height: 100%;
-        background: rgb(190, 222, 240);
-        background: linear-gradient(326deg, rgba(190, 222, 240, 1) 0%, rgba(221, 237, 244, 1) 47%, rgba(245, 254, 255, 1) 100%);
-        border-radius: 1.5rem;
-        padding: 2rem;
-    }
-
-    .cancer-text {
-        flex: 1;
-    }
-    .card-style{
-        margin: 1rem;
-        padding: 10px;
-    }
-    .breastcancer-form {
-        flex: 1;
-    }
-
-    .breast-cancer-card {
-        display: flex;
-    }
-    .model-title{
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-    .line-vertical{
-        width: 0;
-        min-height: 100%;
-        background-color: #1070B4;
-        border: 3px solid #1070B4;
-        border-radius: 2rem;
-    }
-</style>
-
 
 <body>
     <div class="container parent-size pos-relative zero-pad" style="text-align: center;">
@@ -60,7 +16,7 @@
 
         <div class="jumbotron">
             <div class=" container model-title">
-                Breast Cancer Detection
+                Breast Cancer Prediction
             </div>
             <div class="breast-cancer-card">
                 <div class="cancer-text card-style">
@@ -72,25 +28,91 @@
                     minus! Asperiores exercitationem consequatur ipsa dolorem, perspiciatis impedit molestiae illo iure
                     doloremque, eos distinctio quibusdam provident eligendi maxime quo labore vero voluptatum cupiditate
                     ut
-                   
+
                 </div>
+
                 <div class="line-vertical"></div>
+
                 <div class="container breastcancer-form card-style">
                     <form action="predictCancer" method="POST" enctype="multipart/form-data">
-                            <div class>
-                                <label for="inputFeature1">Feature 1</label>
-                                <div class="col-4">
-                                    <input type="number" id="inputFeature1">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="form-grp-inputs">
+                                <div class="input-group">
+                                    <label for="inputFeature1">Mean Concavity</label>
+                                    <span class="col-4">
+                                        <input type="number" step="0.000001" name="concavityMean" id="inputFeature1" >
+                                    </span>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="inputFeature1">Mean Concave Points</label>
+                                    <span class="col-4">
+                                        <input type="number" step="0.000001" name="concavePointsMean" id="inputFeature1">
+                                    </span>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="inputFeature1">Texture Standard Error</label>
+                                    <span class="col-4">
+                                        <input type="number" step="0.000001" name="textureSe" id="inputFeature1">
+                                    </span>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="inputFeature1">Smoothness Standard Error</label>
+                                    <span class="col-4">
+                                        <input type="number" step="0.000001" name="smoothnessSe" id="inputFeature1">
+                                    </span>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="inputFeature1">Compactness Standard Error</label>
+                                    <span class="col-4">
+                                        <input type="number" step="0.000001" name="compactnessSe" id="inputFeature1">
+                                    </span>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="inputFeature1">Concavity Standard Error</label>
+                                    <span class="col-4">
+                                        <input type="number" step="0.000001" name="concavitySe" id="inputFeature1">
+                                    </span>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="inputFeature1">Concave Point Standard Error</label>
+                                    <span class="col-4">
+                                        <input type="number" step="0.000001" name="concavePointsSe" id="inputFeature1">
+                                    </span>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="inputFeature1">Symmetry Standard Error</label>
+                                    <span class="col-4">
+                                        <input type="number" step="0.000001" name="symmetrySe" id="inputFeature1">
+                                    </span>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="inputFeature1">Fractal Dimension Standard Error</label>
+                                    <span class="col-4">
+                                        <input type="number" step="0.000001" name="fractalDimensionSe" id="inputFeature1">
+                                    </span>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="inputFeature1">Worst Concavity</label>
+                                    <span class="col-4">
+                                        <input type="number" step="0.000001" name="concavityWorst" id="inputFeature1">
+                                    </span>
                                 </div>
                             </div>
-                            <div class>
-                                <label for="inputFeature1">Feature 1</label>
-                                <div class="col-4">
-                                    <input type="number" id="inputFeature1">
-                                </div>
+                            <div class="form-btn">
+                                <button type="submit" class="col-9 btn btn-primary">Predict</button>
                             </div>
-                            <div class>
-                                <button type="submit" class="col-9 btn btn-primary">Sign in</button>
+                            <div class="container">
+                                <h1>{{result}}</h1>
                             </div>
                         </div>
                     </form>
