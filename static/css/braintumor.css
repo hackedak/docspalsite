@@ -1,193 +1,91 @@
 
-  
-  
-  html,
-  body {
+
+
+.oval-img {
+  animation-name: unset;
+}
+
+.jumbotron {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: rgb(190, 222, 240);
+  background: linear-gradient(326deg, rgba(190, 222, 240, 1) 0%, rgba(221, 237, 244, 1) 47%, rgba(245, 254, 255, 1) 100%);
+  border-radius: 2rem;
+}
+
+.form {
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  left: 25%;
+  background-color: rgb(190, 222, 240);
+  border: 6px solid #1C6EA4;
+  border-radius: 26px 0px 26px 0px;
+  padding: 1rem;
+}
+
+
+/* old css code */
+
+
+
+
+/* .line {
+  border-top: 1px solid rgb(20, 1, 1);
+  width: 80vmin;
+  margin-bottom: 2px;
+}
+
+.App {
     margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .parent-size {
-    width: 80%;
-    height: 80%;
-  }
-  
-  .center {
-    text-align: center;
-  }
-  
-  .navbar {
-    padding-top: 1rem;
-    border-radius: 5px;
-  }
-  
-  .dropdown-toggle::after {
-    content: none;
-  }
-  
-  .pos-relative {
-    position: relative;
-  }
-  
-  .navbar {
-    border-radius: 5px;
-    width: 80%;
-    position: relative;
-    left: 10%;
-  }
-  
-  .dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
-    background-color: #659ec7ad
-  }
-  
-  .dropdown .dropdown-menu {
-    -webkit-transition: all 0.32s;
-    -moz-transition: all 0.32s;
-    -ms-transition: all 0.32s;
-    -o-transition: all 0.32s;
-    transition: all 0.32s;
-  
-    display: block;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateX(-25%) scaleY(0);
-    transform-origin: top;
-  }
-  
-  .dropdown-menu.show {
-    opacity: 1;
-    transform: translateX(-25%) scaleY(1);
-  }
-  
-  .dropdown-menu {
-    min-width: 8rem;
-    text-align: unset;
-    background-color: #e3f2fd;
-    background-clip: padding-box;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  .jumbotron {
     display: flex;
-    width: 100%;
-    height: 80%;
-    background: rgb(190, 222, 240);
-    background: linear-gradient(326deg, rgba(190, 222, 240, 1) 0%, rgba(221, 237, 244, 1) 47%, rgba(245, 254, 255, 1) 100%);
-    border-radius: 2rem;
-  }
-  
-  .navbar-light .navbar-nav .nav-link:focus,
-  .navbar-light .navbar-nav .nav-link:hover {
-    color: rgba(0, 0, 0, .7);
-  
-  }
-  
-  .oval-img {
-    position: absolute;
-    right: 0;
-    width: 50%;
-    z-index: 99;
-    animation-name: oval-img;
-    animation-duration: 1s;
-    animation-timing-function: ease-in;
-  }
-  
-  .zero-pad {
-    padding: 0;
-  }
-  
-  .nav-item {
-    margin: 0 5px;
-  }
-  
-  .home {
-    border: 1px solid white;
-    border-radius: 30px;
-    margin: 0;
-  }
-  
-  .caption-name {
+    flex-direction: column;
     height: 100%;
-    left: 0;
-    flex: 1;
-    display: flex;
     align-items: center;
-    animation-name: captionAnim;
-    animation-duration: 1s;
-    animation-timing-function: ease-in;
+    font-family: "notasans";
+    background-color: rgb(228, 225, 225);
   }
   
-  .caption-name h1 {
-    padding-left: 1rem;
-    text-align: left;
-    font-family: "PTSerif-Bold";
+  
+  .App-header {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+  }
+  .App-logo {
+    width: 20vmin;
+    border-radius: 50%;
   }
   
-  .capsule-img {
-    flex: 1;
-    position: relative;
-    animation-name: capsuleAnime;
-    animation-fill-mode: forwards;
-    animation-duration: 1s;
-    animation-timing-function:cubic-bezier(0.311, 0.441, 0.444, 1.649);
+  .app-title{
+    font-size: calc(var(--fontsmall)*2);
+    font-weight: 600;
+    color: var(--tertiary-green);
   }
   
-  .capsule-img img {
-    position: absolute;
-    right: 1.5rem;
-    bottom: 1.5rem;
-    width: 30%;
-  
+  .detect-tools{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 1vmin;
+   margin: 5vmin;
   }
   
-
-
-
-
-
-
-
-
-
-
-  @keyframes captionAnim {
-    from {
-      position: relative;
-      left: -10px;
-      opacity: 0;
-  
-    }
-  
-    to {
-      position: unset;
-      opacity: 100%;
-      left: 10px;
-    }
+  .card-image img{
+    border-radius: 20px;
+    width: 60vmin;
+    box-shadow: 0 4px 8px 0 rgba(53, 48, 48, 0.2);
+    transition: 0.3s;
   }
-  
-  @keyframes oval-img {
-    from {
-      width: 45%;
-    }
-  
-    to {}
-  }
-  @keyframes capsuleAnime {
-    from {
-      right: 0.5rem;
-      bottom: 0.5rem;
-      opacity: 0;
-    }
-  
-    to {
-      right: 1.5rem;
-      bottom: 1.5rem;
-      opacity: 1;
-    }
-  }
-  
+ .card{
+     margin-bottom: 20px;
+ }
+
+ .tool-title{
+   margin: 5vmin 0;
+   color: var(--tertiary-green);
+   font-family: "notasans-bold";
+   font-size: calc(var(--fontsmall)*1.5);
+ } */
