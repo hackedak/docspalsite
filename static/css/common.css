@@ -1,22 +1,5 @@
-@font-face {
-    font-family: "PTSerif-Regular";
-    src: url("../fonts/PTSerif-Regular.ttf");
-  }
+
   
-  @font-face {
-    font-family: "PTSerif-Bold";
-    src: url("../fonts/PTSerif-Bold.ttf");
-  }
-  
-  @font-face {
-    font-family: "PTSerif-BoldItalic";
-    src: url("../fonts/PTSerif-BoldItalic.ttf");
-  }
-  
-  @font-face {
-    font-family: "PTSerif-Italic";
-    src: url("../fonts/PTSerif-Italic.ttf");
-  }
   
   :root {
     --primary-green: aquamarine;
@@ -24,7 +7,10 @@
     --secondary-green: rgb(16, 168, 115);
     --fontsmall: 1rem;
   }
-  
+  *{
+    
+    font-family: 'MavenPro-Regular';
+  }
   
   html,
   body {
@@ -32,7 +18,6 @@
     padding: 0;
     width: 100%;
     height: 100%;
-    font-family: 'PTSerif-Regular';
   }
   
   .parent-size {
@@ -108,10 +93,7 @@
   
   }
 
-  .navbar-color{
-    background-color: aqua;
-  }
-  
+
   .oval-img {
     position: absolute;
     right: 0;
