@@ -10,6 +10,7 @@
   
   
   
+  
   .caption-name {
     height: 100%;
     left: 0;
@@ -24,7 +25,7 @@
   .caption-name h1 {
     padding-left: 1rem;
     text-align: left;
-    font-family: "PTSerif-Bold";
+    font-family: 'MavenPro-Bold';
   }
   
   .capsule-img {
