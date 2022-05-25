@@ -9,6 +9,21 @@
     <link rel="stylesheet" href="{% static 'css/breastcancer.css' %}">
     <title>Breast Cancer Prediction</title>
 </head>
+<style>
+
+    .breast-cancer-img img {
+        width: 15rem;
+    }
+
+    .img-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        padding: 0 1rem;
+    }
+</style>
 
 <body>
     <div class="container parent-size pos-relative zero-pad" style="text-align: center;">
@@ -19,18 +34,24 @@
                 Breast Cancer Prediction
             </div>
             <div class="breast-cancer-card">
-                <div class="cancer-text card-style">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde animi voluptatum doloremque
-                    dignissimos
-                    distinctio adipisci, asperiores quas atque illum ad voluptate corporis ipsa dicta, quod accusantium.
-                    Quod voluptas sint deserunt totam praesentium voluptatibus fuga, similique accusamus cupiditate
-                    molestiae vero fugit possimus, laboriosam nisi optio sunt atque, architecto rem nam ea omnis laborum
-                    minus! Asperiores exercitationem consequatur ipsa dolorem, perspiciatis impedit molestiae illo iure
-                    doloremque, eos distinctio quibusdam provident eligendi maxime quo labore vero voluptatum cupiditate
-                    ut
+                <div class="img-text">
+
+                    <div class="card-style breast-cancer-img">
+                        <img src="{% static 'images/breastCancer.png' %}" alt="breast cancer" />
+                    </div>
+                    <div class="cancer-text">
+                        Breast cancer can occur in women and rarely in men.
+                        Symptoms of breast cancer include
+                        <ul style="*">
+                            <li>a lump in the breast,</li>
+                            <li>bloody discharge from the nipple,</li>
+                            <li>and changes in the shape or texture of the nipple or breast.</li>
+                        </ul>
+                        Its treatment depends on the stage of cancer. It may consist of chemotherapy, radiation, hormone
+                        therapy and surgery.
+                    </div>
 
                 </div>
-
                 <div class="line-vertical"></div>
 
                 <div class="container breastcancer-form card-style">
@@ -41,14 +62,15 @@
                                 <div class="input-group">
                                     <label for="inputFeature1">Mean Concavity</label>
                                     <span class="col-4">
-                                        <input type="number" step="0.000001" name="concavityMean" id="inputFeature1" >
+                                        <input type="number" step="0.000001" name="concavityMean" id="inputFeature1">
                                     </span>
                                 </div>
 
                                 <div class="input-group">
                                     <label for="inputFeature1">Mean Concave Points</label>
                                     <span class="col-4">
-                                        <input type="number" step="0.000001" name="concavePointsMean" id="inputFeature1">
+                                        <input type="number" step="0.000001" name="concavePointsMean"
+                                            id="inputFeature1">
                                     </span>
                                 </div>
 
@@ -97,7 +119,8 @@
                                 <div class="input-group">
                                     <label for="inputFeature1">Fractal Dimension Standard Error</label>
                                     <span class="col-4">
-                                        <input type="number" step="0.000001" name="fractalDimensionSe" id="inputFeature1">
+                                        <input type="number" step="0.000001" name="fractalDimensionSe"
+                                            id="inputFeature1">
                                     </span>
                                 </div>
 
