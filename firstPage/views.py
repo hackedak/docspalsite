@@ -2,9 +2,9 @@ from multiprocessing import context
 from django.shortcuts import render
 from django.http import HttpResponse
 from firstPage.models import UploadImage
+from django.http import FileResponse
 
-
-
+import os
 def resizeImage(Image):
     image = Image
     return image
@@ -68,14 +68,29 @@ def predictCancer(request):
     return render(request, 'cancerPrediction.html', context)
 
 
+
 def predictTumor(request):
+    import tensorflow as tf
+    import pandas as pd
+    import numpy as np
+    import cv2 as cv
+    reloadModel = tf.keras.models.load_model('models/brain_tumor_pred.h5')
     if request.method == "POST":
         fileUploaded = request.FILES['imgfile']
-        # call resize image here
+        imageName = request.FILES['imgfile'].name.split('/')[-1]
         document = UploadImage.objects.create(file = fileUploaded)
         document.save()
-        return HttpResponse("Your file was saved")
-    return render(request, "brainTumor.html")
+        tumorImage = UploadImage.objects.get(pk=document.id)
+        imagePath = 'C:/finalYearProject/docspalsite/media/media/'+imageName
+        temp_image = cv.imread(imagePath)
+        resizedImage = cv.resize(temp_image, (224, 224))
+        normalizedImage = np.array(resizedImage) / 255.0
+        prediction = reloadModel.predict(np.array([normalizedImage],))
+        prediction_label = np.argmax(prediction)
+        print(prediction_label)
+        context = {'prediction': prediction_label, 'image': tumorImage}
+        return render(request, 'tumorDetection.html', context)
+
 
 def test(request):
     context = {'pageValue' : 'Testing'}
