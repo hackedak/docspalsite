@@ -10,40 +10,43 @@
     <title>Tumor Detection</title>
 </head>
 <style>
-.prediction{
-font-size: 1.2rem;
-font-family: 'MavenPro-Bold';
-}
+    .prediction {
+        font-size: 1.2rem;
+        font-family: 'MavenPro-Bold';
+    }
 
-.Malignant, .Benign{
-    display: block;
-    font-size: 3rem;
-    padding: 0;
-    margin: 0;
-}
+    .Malignant,
+    .Benign {
+        display: block;
+        font-size: 3rem;
+        padding: 0;
+        margin: 0;
+    }
 
-.Malignant{
-    color: #ef5a46;
-}
-.Benign{
-    color: #6ab94f;
-}
-.breastcancer-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+    .Malignant {
+        color: #ef5a46;
+    }
 
-.tumor-img{
-    flex: 1;
-}
-.tumor-img img{
-    width: 10rem;
-}
+    .Benign {
+        color: #6ab94f;
+    }
 
+    .breastcancer-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
+    .tumor-img {
+        flex: 1;
+    }
+
+    .tumor-img img {
+        width: 10rem;
+    }
 </style>
+
 <body>
 
     <div class="container parent-size pos-relative zero-pad" style="text-align: center;">
@@ -55,15 +58,14 @@ font-family: 'MavenPro-Bold';
             </div>
             <div class="breast-cancer-card">
                 <div class="cancer-text card-style">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde animi voluptatum doloremque
-                    dignissimos
-                    distinctio adipisci, asperiores quas atque illum ad voluptate corporis ipsa dicta, quod accusantium.
-                    Quod voluptas sint deserunt totam praesentium voluptatibus fuga, similique accusamus cupiditate
-                    molestiae vero fugit possimus, laboriosam nisi optio sunt atque, architecto rem nam ea omnis laborum
-                    minus! Asperiores exercitationem consequatur ipsa dolorem, perspiciatis impedit molestiae illo iure
-                    doloremque, eos distinctio quibusdam provident eligendi maxime quo labore vero voluptatum cupiditate
-                    ut
-
+                    <div class="cancer-text">
+                        Brain tumors are categorized as primary or secondary:
+                        <ul style="*">
+                            <li>A primary brain tumor originates in your brain. Many primary brain tumors are benign.</li>
+                            <li>A secondary brain tumor, also known as a metastatic brain tumor, occurs when cancer cells
+                                spreadTrusted Source to your brain from another organ, such as your lung or breast.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="line-vertical"></div>
@@ -72,11 +74,11 @@ font-family: 'MavenPro-Bold';
                     <div class="tumor-img">
                         <img src="media/{{ image.file }}" alt="uploaded image" />
                     </div>
-                {%  if prediction == 1  %}
-                        <div class="prediction" >The tumor is <span class="Malignant">DETECTED</span></div>
-                {%  else %}
-                        <div class="prediction">The tumor is <span class="Benign">NOT DETECTED</span></div>
-                {%  endif %}
+                    {% if prediction == 1 %}
+                    <div class="prediction">The tumor is <span class="Malignant">DETECTED</span></div>
+                    {% else %}
+                    <div class="prediction">The tumor is <span class="Benign">NOT DETECTED</span></div>
+                    {% endif %}
                 </div>
             </div>
 

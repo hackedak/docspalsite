@@ -40,9 +40,9 @@ def predictCancer(request):
         temp['symmetrySe']=request.POST.get('symmetrySe')
         temp['fractalDimensionSe']=request.POST.get('fractalDimensionSe')
         temp['concavityWorst']=request.POST.get('concavityWorst')
-    input_data = list(temp.values())
-    input_data = [float(i) for i in input_data]
-    # input_data = (0.1689,0.06367,1.027,0.007405,0.04549,0.04588,0.01339,0.01738,0.004435,0.8402)
+    # input_data = list(temp.values())
+    # input_data = [float(i) for i in input_data]
+    input_data = (0.1689,0.06367,1.027,0.007405,0.04549,0.04588,0.01339,0.01738,0.004435,0.8402)
 
     #Converting to numpy array
     input_data_as_numpy_array = np.asarray(input_data)
